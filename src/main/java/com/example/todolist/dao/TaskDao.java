@@ -19,11 +19,11 @@ public interface TaskDao {
 
     Optional<Task> getById(UUID id);
 
-//    List<Task> getByImportance();
-
     int deleteById(UUID id);
 
     int updateById(UUID id, Task task);
+
+    List<Task> getByImportance(int importance);
 
     List<Task> sortByImportance();
 }

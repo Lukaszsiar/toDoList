@@ -36,6 +36,11 @@ public class TaskController {
         return taskService.getById(id);
     }
 
+    @GetMapping("/list/importance")
+    public List<Task> getByImportance(@RequestParam int importance) {
+        return taskService.getByImportance(importance);
+    }
+
     @GetMapping("/list/sort")
     public List<Task> sortByImportance() {
         return taskService.sortByImportance();

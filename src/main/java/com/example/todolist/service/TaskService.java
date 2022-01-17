@@ -40,6 +40,10 @@ public class TaskService {
         return taskDao.updateById(id, task);
     }
 
+    public List<Task> getByImportance(int importance){
+        return taskDao.getByImportance(importance);
+    }
+
     public List<Task> sortByImportance(){
         return taskDao.sortByImportance();
     }

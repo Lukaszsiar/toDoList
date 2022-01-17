@@ -52,14 +52,15 @@ public class FakeTaskDataAccessService implements TaskDao{
         }).orElse(0);
     }
 
-//    @Override
-//    public List<Task> getByImportance(int importance) {
-//        List<Task> taskList = getAll();
-//        List<Task> resultList = taskList.stream()
-//                .map(task -> task.getImportance());
-//
-//        return resultList;
-//    }
+    @Override
+    public List<Task> getByImportance(int importance) {
+        List<Task> taskList = getAll();
+        List<Task> resultList = taskList.stream()
+                .filter(task -> task.getImportance() == importance)
+                .collect(Collectors.toList());
+
+        return resultList;
+    }
 
     public List<Task> sortByImportance(){
         List<Task> taskList = getAll();
@@ -77,5 +78,6 @@ public class FakeTaskDataAccessService implements TaskDao{
         addTask(new Task(UUID.randomUUID(), "task 3", 5));
         addTask(new Task(UUID.randomUUID(), "task 4", 3));
         addTask(new Task(UUID.randomUUID(), "task 5", 4));
+        addTask(new Task(UUID.randomUUID(), "task 6", 5));
     }
 }
